@@ -7,6 +7,7 @@ import { Ionicons } from '@expo/vector-icons';
 
 import { ThemeProvider, useTheme } from './src/context/ThemeContext';
 import ChatScreen from './src/screens/ChatScreen';
+import NutritionPerformanceScreen from './src/screens/NutritionPerformanceScreen';
 import DashboardScreen from './src/screens/DashboardScreen';
 
 const Tab = createBottomTabNavigator();
@@ -51,6 +52,8 @@ function MainTabNavigator() {
             let iconName;
             if (route.name === 'Coach') {
               iconName = focused ? 'chatbubble-ellipses' : 'chatbubble-ellipses-outline';
+            } else if (route.name === 'Nutricion') {
+              iconName = focused ? 'nutrition' : 'nutrition-outline';
             } else if (route.name === 'Resumen') {
               iconName = focused ? 'stats-chart' : 'stats-chart-outline';
             }
@@ -63,6 +66,13 @@ function MainTabNavigator() {
           component={ChatScreen}
           options={{
             tabBarLabel: 'Coach',
+          }}
+        />
+        <Tab.Screen 
+          name="Nutricion" 
+          component={NutritionPerformanceScreen}
+          options={{
+            tabBarLabel: 'Nutrición',
           }}
         />
         <Tab.Screen 
